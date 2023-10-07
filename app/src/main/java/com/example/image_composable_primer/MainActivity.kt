@@ -33,7 +33,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    Greeting("Android")
+                    Greeting()
                 }
             }
         }
@@ -41,28 +41,14 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
+fun Greeting(modifier: Modifier = Modifier) {
 
-    Column(modifier = modifier,
+    Column( modifier = modifier,
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
-        )    {
-
-
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-
-    Image(
-        painter = painterResource(R.drawable.lola),
-        contentDescription = null,
-        modifier = modifier
-            .padding(6.dp)
-            .size(dimensionResource(R.dimen.image_size))
-            .clip(MaterialTheme.shapes.small),
-        contentScale = ContentScale.Crop
-    )
+        )   {
+        Image(painter = painterResource(id = R.drawable.lola),
+            contentDescription = null)
     }
 }
 
@@ -70,6 +56,6 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 @Composable
 fun GreetingPreview() {
     Image_composable_primerTheme {
-        Greeting("Android")
+        Greeting()
     }
 }
