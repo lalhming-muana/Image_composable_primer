@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -12,6 +13,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
@@ -31,7 +33,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    Greeting("Android")
+                    Greeting()
                 }
             }
         }
@@ -39,25 +41,14 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
+fun Greeting(modifier: Modifier = Modifier) {
 
-    Column {
-
-
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-
-    Image(
-        painter = painterResource(R.drawable.lola),
-        contentDescription = null,
-        modifier = modifier
-            .padding(6.dp)
-            .size(dimensionResource(R.dimen.image_size))
-            .clip(MaterialTheme.shapes.small),
-        contentScale = ContentScale.Crop
-    )
+    Column( modifier = modifier,
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally
+        )   {
+        Image(painter = painterResource(id = R.drawable.lola),
+            contentDescription = null)
     }
 }
 
@@ -65,6 +56,6 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 @Composable
 fun GreetingPreview() {
     Image_composable_primerTheme {
-        Greeting("Android")
+        Greeting()
     }
 }

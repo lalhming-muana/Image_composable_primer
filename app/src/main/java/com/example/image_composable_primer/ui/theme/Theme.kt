@@ -1,6 +1,7 @@
 package com.example.image_composable_primer.ui.theme
 
 import android.app.Activity
+import android.graphics.drawable.shapes.Shape
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
@@ -65,6 +66,7 @@ fun Image_composable_primerTheme(
     MaterialTheme(
         colorScheme = colorScheme,
         typography = Typography,
-        content = content
+        content = content,
+        shapes = Shapes
     )
 }
